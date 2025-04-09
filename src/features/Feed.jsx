@@ -10,6 +10,7 @@ import { db } from '../Firebase';
 import { Avatar } from '@mui/material';
 import { useSelector } from 'react-redux';
 import FlipMove from 'react-flip-move'
+import '../App.css'
 
 export default function Feed() {
   const [ input, setInput ] = useState('')
@@ -55,11 +56,12 @@ export default function Feed() {
   };
 
   return (
-    <div className="w-[550px]">
+    <div className="w-[550px] feed">
+      <div>
       <div className="bg-white p-4 rounded-sm border-1">
         <div className="flex justify-evenly items-center">
           <div>
-            <Avatar src={user.photoURL?user.photoURL:authinfo?.photoUrl} sx={{ width: 55, height: 55, border:1 }} />
+            <Avatar src={!authinfo.isBool?user.photoURL:authinfo?.photoUrl} sx={{ width: 55, height: 55, border:1 }} />
           </div>
           <div>
             <form>
@@ -80,14 +82,6 @@ export default function Feed() {
 >
   <PermMediaIcon  />
   <p className="font-bold !ml-2">Media</p>
-  
-  {/* Hidden File Input */}
-  <input 
-    type="file" 
-    ref={fileInputRef} 
-    accept="image/*, video/*" 
-    className="hidden"
-  />
 </div>
 
           <div className="cursor-pointer inline-block !ml-10">
@@ -112,5 +106,6 @@ export default function Feed() {
     ))}
 </FlipMove>
     </div> 
+    </div>
   )
 }

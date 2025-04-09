@@ -1,4 +1,5 @@
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import '../App.css'
 
      const newsArticle =(heading,subtitle)=>(
         <div className='flex'>
@@ -18,7 +19,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 export default function TrendingNow() {
   return (
-    <div className="max-w-sm p-4 bg-white !mt-24 rounded-sm border">
+    <div className="max-w-sm p-4 bg-white !mt-0 widget rounded-sm border">
       <div>
         <h2 className="text-lg font-semibold mb-2">Trending Now</h2>
         <p className="text-gray-500 text-sm mb-4">curated by LinkedIn News</p>

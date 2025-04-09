@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { Avatar } from "@mui/material";
 import { useState, useEffect } from "react";
 
+import '../App.css'
+
 export default function Sidebar() {
   const user = useSelector(state => state.user.user)
   const [postIm, setPostIm] = useState([])
@@ -13,7 +15,7 @@ export default function Sidebar() {
   }, [])
 
   return (
-    <div className="w-46 flex flex-col !mt-24 gap-3">
+    <div className="w-46 flex flex-col side !mt-0 gap-3">
       <div className="rounded-sm bg-white border hover:cursor-pointer overflow-hidden">
         <div className="relative">
           <img
@@ -23,7 +25,7 @@ export default function Sidebar() {
           />
 
           <div className="absolute left-1/2 -translate-x-1/2 -bottom-8">
-            <Avatar src={user.photoURL?user.photoURL:authinfo?.photoURL} sx={{ width: 75, height: 75, border: 1 }} />
+            <Avatar src={!authinfo.isBool?user.photoURL:authinfo?.photoURL} sx={{ width: 75, height: 75, border: 1 }} />
           </div>
         </div>
 

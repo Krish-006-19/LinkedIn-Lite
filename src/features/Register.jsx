@@ -48,7 +48,8 @@ function Register() {
         uid:info.user.uid,
         email:info.user.email,
         photoURL:info.user.photoURL,
-        displayName:info.user.displayName
+        displayName:info.user.displayName,
+        isBool: setBool(true)
       }
       await updateProfile(auth.currentUser,{
         displayName:info.displayName,

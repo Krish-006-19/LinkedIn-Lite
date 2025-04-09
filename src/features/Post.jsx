@@ -3,14 +3,16 @@ import SendIcon from '@mui/icons-material/Send';
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
+import '../App.css'
+
 import { forwardRef } from "react";
  const Post=forwardRef(({ name , description , message , photoUrl },ref)=> {
   const authinfo = JSON.parse(localStorage.getItem('auth'))
   return (<>
-    {<div ref={ref} className="!mt-3 bg-white rounded-sm border-1 p-4">
+    {<div ref={ref} className="!mt-3 bg-white rounded-sm z-0 post border-1 p-4">
         <div className="flex items-center">
           <div className="!mr-2">
-          <Avatar src={photoUrl?photoUrl:authinfo?.photoUrl} sx={{ width: 55, height: 55,border:1 }} /> 
+          <Avatar src={!authinfo.isBool?photoUrl:authinfo?.photoUrl} sx={{ width: 55, height: 55,border:1 }} /> 
     </div>
             <div>
               <h2 className="!mb-0 text-xl"><b>{name}</b></h2>

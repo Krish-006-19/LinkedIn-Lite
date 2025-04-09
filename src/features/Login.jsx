@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 const Login=()=> {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [bool, setBool] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const loginToApp=async(e)=>{
@@ -37,7 +38,8 @@ const google = async()=>{
           uid:info.user.uid,
           email:info.user.email,
           photoURL:info.user.photoURL,
-          displayName:info.user.displayName
+          displayName:info.user.displayName,
+          isBool: setBool(true)
         }
         await updateProfile(auth.currentUser,{
           displayName:info.displayName,

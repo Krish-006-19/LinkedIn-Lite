@@ -7,10 +7,11 @@ import Login from './features/Login'
 function App1() {
   return (
     <div>
-      <BrowserRouter basename='/LinkedIn-Lite'>
+      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Navigate to="/MyLinkedin" />} />  
           <Route path='/MyLinkedin' element={<App />} />
+          <Route path='/MyLinkedin/' element={<App />} />
           <Route path='/MyLinkedin/signin' element={<Login/>}/>
           <Route path='/MyLinkedin/register' element={<Register />} />
         </Routes>

@@ -16,6 +16,7 @@ function Register() {
     const register = async(e)=>{
       e.preventDefault()
       try{
+        setBool(false)
         if(name.trim() === ''){
           alert('Please enter full name!')
           return;

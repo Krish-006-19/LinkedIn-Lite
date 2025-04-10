@@ -14,6 +14,7 @@ const Login=()=> {
     const loginToApp=async(e)=>{
       e.preventDefault()
         try{    
+          setBool(false)
           const userAuth = await signInWithEmailAndPassword(auth,email,password)
           await updateProfile(userAuth,{
             displayName:userAuth.displayName,
@@ -33,13 +34,14 @@ const Login=()=> {
       }
 const google = async()=>{
         try{
+          setBool(true)
         const info = await signInWithPopup(auth,provider)
         const authinfo={
           uid:info.user.uid,
           email:info.user.email,
           photoURL:info.user.photoURL,
           displayName:info.user.displayName,
-          isBool: setBool(true)
+          isBool: bool
         }
         await updateProfile(auth.currentUser,{
           displayName:info.displayName,

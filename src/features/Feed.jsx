@@ -61,7 +61,7 @@ export default function Feed() {
       <div className="bg-white p-4 rounded-sm border-1">
         <div className="flex justify-evenly items-center">
           <div>
-            <Avatar src={!authinfo.isBool?user.photoURL:authinfo?.photoUrl} sx={{ width: 55, height: 55, border:1 }} />
+            <Avatar src={!authinfo.isBool?user.photoURL:authinfo?.photoURL} sx={{ width: 55, height: 55, border:1 }} />
           </div>
           <div>
             <form>
@@ -102,7 +102,7 @@ export default function Feed() {
       name={name}
       description={description}
       message={message}
-      photoUrl={photoUrl?photoUrl:authinfo?.photoURL}/>
+      photoUrl={!authinfo.isBool?photoUrl:authinfo?.photoURL}/>
     ))}
 </FlipMove>
     </div> 

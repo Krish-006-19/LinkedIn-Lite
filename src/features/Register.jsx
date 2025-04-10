@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 function Register() {
   const navigate = useNavigate()
     const [name, setName] = useState('')
+    const [bool, setBool] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [profilepic, setProfilepic] = useState('')
@@ -43,13 +44,14 @@ function Register() {
 
     const google = async()=>{
       try{
+        setBool(true)
       const info = await signInWithPopup(auth,provider)
       const authinfo={
         uid:info.user.uid,
         email:info.user.email,
         photoURL:info.user.photoURL,
         displayName:info.user.displayName,
-        isBool: setBool(true)
+        isBool: bool
       }
       await updateProfile(auth.currentUser,{
         displayName:info.displayName,

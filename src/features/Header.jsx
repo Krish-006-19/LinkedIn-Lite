@@ -14,7 +14,7 @@ import '../App.css'
 
 export default function Header() {
   const user = useSelector(state=>state.user.user)
-  const authinfo = JSON.parse(localStorage.getItem('auth'))
+  const authinfo = JSON.parse(localStorage.getItem('auth'))||{}
   const dispatch = useDispatch()
   const logoutApp =async()=> {
     dispatch(logout())

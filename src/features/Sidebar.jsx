@@ -8,7 +8,7 @@ export default function Sidebar() {
   const user = useSelector(state => state.user.user)
   const [postIm, setPostIm] = useState([])
   const [profView, setProfView] = useState([])
-  const authinfo = JSON.parse(localStorage.getItem('auth'))
+  const authinfo = JSON.parse(localStorage.getItem('auth'))||{}
   useEffect(() => {
     setPostIm(prev => [...prev, Math.floor(Math.random() * 200) + 1])
     setProfView(prev => [...prev, Math.floor(Math.random() * 100) + 1])

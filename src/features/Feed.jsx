@@ -16,7 +16,7 @@ export default function Feed() {
   const [ input, setInput ] = useState('')
   const [ posts, setPosts ] = useState([])
   const user = useSelector(state=>state.user.user)
-  const authinfo = JSON.parse(localStorage.getItem('auth'))
+  const authinfo = JSON.parse(localStorage.getItem('auth'))||{}
     useEffect(() => {
     let Queryli = query(collection(db, 'posts'), orderBy('timestamp', 'desc'))
 

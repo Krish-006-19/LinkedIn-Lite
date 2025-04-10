@@ -7,7 +7,7 @@ import '../App.css'
 import { forwardRef } from "react";
 
  const Post=forwardRef(({ name , description , message , photoUrl },ref)=> {
-  const authinfo = JSON.parse(localStorage.getItem('auth'))
+  const authinfo = JSON.parse(localStorage.getItem('auth'))||{}
   return (<>
     {<div ref={ref} className="!mt-3 bg-white rounded-sm z-0 post border-1 p-4">
         <div className="flex items-center">

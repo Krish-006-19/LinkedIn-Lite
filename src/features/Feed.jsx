@@ -21,6 +21,7 @@ export default function Feed() {
     let Queryli = query(collection(db, 'posts'), orderBy('timestamp', 'desc'))
 
       const unsub = onSnapshot(Queryli, (snapshot) => {
+        console.log(snapshot.docs)
         setPosts(
           snapshot.docs.map((doc) => ({
             id: doc.id,
@@ -96,6 +97,7 @@ export default function Feed() {
       </div>
       <div className="border-1 !mt-4"></div>
 <FlipMove>
+  {posts && console.log(posts)}
 {posts?.map(({id, data:{name, description, message, photoUrl}})=>(
       <Post 
       key={id}

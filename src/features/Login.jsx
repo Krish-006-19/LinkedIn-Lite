@@ -1,7 +1,7 @@
 import { auth, provider } from '../Firebase'
 import img from './images/linkedInLog.png' 
 import {useState} from 'react'
-import { signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth'
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { login } from '../Redux/userSlice'
 import { Link, useNavigate } from 'react-router-dom'
@@ -15,17 +15,13 @@ const Login=()=> {
       e.preventDefault()
         try{    
           setBool(false)
-          const userAuth = await signInWithEmailAndPassword(auth,email,password)
-          await updateProfile(userAuth,{
-            displayName:userAuth.displayName,
-            photoURL:userAuth.photoURL
-        })
+          const {user} = await signInWithEmailAndPassword(auth, email, password)
           if(email && password)
           dispatch(login({
-                    email: userAuth.user.email,
-                    uid: userAuth.user.uid,
-                    displayName:userAuth.user.displayName,
-                    photoURL:userAuth.user.photoURL
+                    email: user.email,
+                    uid: user.uid,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL
         }))
         } catch(co){
           throw co          
@@ -34,19 +30,15 @@ const Login=()=> {
       }
 const google = async()=>{
         try{
-          setBool(true)
-        const info = await signInWithPopup(auth,provider)
+        setBool(true)
+        const {user} = await signInWithPopup(auth,provider)
         const authinfo={
-          uid:info.user.uid,
-          email:info.user.email,
-          photoURL:info.user.photoURL,
-          displayName:info.user.displayName,
+          uid: user.uid,
+          email: user.email,
+          photoURL: user.photoURL,
+          displayName: user.displayName,
           isBool: bool
         }
-        await updateProfile(auth.currentUser,{
-          displayName:info.displayName,
-          photoURL:info.photoURL
-        })
         localStorage.setItem('auth',JSON.stringify(authinfo))
         dispatch(login(authinfo))
           } catch (err) {

@@ -4,20 +4,30 @@ import App from './App'
 import Register from './features/Register'
 import Login from './features/Login'
 
-function App1() {
-  return (
-    <div>
-      <BrowserRouter>
+export default function App1() {
+  return <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Navigate to="/MyLinkedin" />} />  
-          <Route path='/MyLinkedin' element={<App />} />
-          <Route path='/MyLinkedin/' element={<App />} />
-          <Route path='/MyLinkedin/signin' element={<Login/>}/>
-          <Route path='/MyLinkedin/register' element={<Register />} />
+
+          <Route 
+          path='/'
+          element={<Navigate to="/MyLinkedin" />} />  
+
+          <Route 
+          path='/MyLinkedin'
+          element={<App />} />
+
+          <Route
+          path='/MyLinkedin/' 
+          element={<App />} />
+
+          <Route 
+          path='/MyLinkedin/signin' 
+          element={<Login/>}/>
+
+          <Route 
+          path='/MyLinkedin/register' 
+          element={<Register />} />
+
         </Routes>
       </BrowserRouter>
-    </div>
-  )
 }
-
-export default App1

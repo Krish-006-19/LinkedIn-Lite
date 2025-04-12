@@ -14,6 +14,7 @@ export default function Sidebar() {
     setProfView(prev => [...prev, Math.floor(Math.random() * 100) + 1])
   }, [])
 
+  
   return (
     <div className="w-46 flex flex-col side !mt-0 gap-3">
       <div className="rounded-sm bg-white border hover:cursor-pointer overflow-hidden">

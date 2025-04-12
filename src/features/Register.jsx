@@ -28,7 +28,7 @@ function Register() {
             displayName:name,
             photoURL:profilepic
         })
-    
+        
         dispatch(login({
             email: user.email,
             uid: user.uid,
@@ -46,18 +46,14 @@ function Register() {
     const google = async()=>{
       try{
         setBool(true)
-      const info = await signInWithPopup(auth,provider)
+      const {user} = await signInWithPopup(auth,provider)
       const authinfo={
-        uid:info.user.uid,
-        email:info.user.email,
-        photoURL:info.user.photoURL,
-        displayName:info.user.displayName,
+        uid:user.uid,
+        email:user.email,
+        photoURL:user.photoURL,
+        displayName:user.displayName,
         isBool: bool
       }
-      await updateProfile(auth.currentUser,{
-        displayName:info.displayName,
-        photoURL:info.photoURL
-      })
       localStorage.setItem('auth',JSON.stringify(authinfo))
       dispatch(login(authinfo))
         } catch (err) {

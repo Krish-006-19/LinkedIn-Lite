@@ -26,7 +26,6 @@ Even as a lightweight clone, **LinkedIn‑Lite** shines through:
 - Chat and post feed features offer real-time, trend-based interaction.
 - Authentication enables data security and personalized experience.
 - Designed for ease-of-use and seamless access from anywhere.  
- (Source: GitHub repo metadata showing Firebase configuration structure and tech languages) :contentReference[oaicite:0]{index=0}
 
 ---
 

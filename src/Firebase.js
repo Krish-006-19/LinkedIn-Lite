@@ -1,18 +1,19 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore} from "firebase/firestore";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getAuth, GithubAuthProvider } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA6MHQUcQy3mQuPjp0e7vZx1fBQpQfiknI",
-    authDomain: "linkedin-clone-ef70f.firebaseapp.com",
-    projectId: "linkedin-clone-ef70f",
-    storageBucket: "linkedin-clone-ef70f.firebasestorage.app",
-    messagingSenderId: "542317234329",
-    appId: "1:542317234329:web:da73f08c31bc423b62d008"
-  }
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
 
-  const app = initializeApp(firebaseConfig)
-  const db = getFirestore(app)
-  const auth = getAuth(app)
-  const provider = new GoogleAuthProvider()
-  export { db, auth, provider }
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GithubAuthProvider();
+const db = getFirestore(app);
+
+export { auth, provider, db };

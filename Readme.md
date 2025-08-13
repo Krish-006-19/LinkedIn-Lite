@@ -37,7 +37,3 @@ It focuses on core LinkedIn features like posting, viewing feeds, and user authe
 - 📱 Fully responsive design
 - ⚡ Fast loading with Vite + Tailwind
 
----
-
-## 📂 Project Structure
-
